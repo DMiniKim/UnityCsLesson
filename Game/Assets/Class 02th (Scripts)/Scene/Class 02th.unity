@@ -261,7 +261,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1868461998570734802, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
   m_PrefabInstance: {fileID: 1141900306}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &818477965
+--- !u!114 &818477962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 818477961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362c7a23487c0e746afa5454493c10f5, type: 3}
+  m_Script: {fileID: 11500000, guid: f238936b765fc8243a88300c8841c3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1141900306
@@ -281,6 +281,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1868461998570734800, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1868461998570734801, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -325,6 +329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Sheep_cream
       objectReference: {fileID: 0}
+    - target: {fileID: 1868461998570734802, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1868461998570734803, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -335,7 +343,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1868461998570734802, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 818477965}
+      addedObject: {fileID: 818477962}
   m_SourcePrefab: {fileID: 100100000, guid: d4d6ee78313566d4fb5c9a6ce2e66e80, type: 3}
 --- !u!1 &1736066869
 GameObject:

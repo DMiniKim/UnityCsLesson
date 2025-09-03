@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class Ability: MonoBehaviour
+public class Ability
 {
-    private int strength;
+    private int strength = 10;
 
-    void Start()            // 持失切
-    {
-        strength = 10;    
+    public Ability()           // 持失切
+    {       
         Debug.Log("Strength : " +  strength);
     }
 
