@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour
 {
-    Ability ability;
+    [SerializeField] Ability ability;
 
     private void Awake()
     {
@@ -10,7 +10,8 @@ public class Sheep : MonoBehaviour
         //         객체가 비활성화 되어있을 때에도 호출되며 단 한 번만 호출되는 이벤트 함수.
 
         Debug.Log("Awake");
-        ability  = new Ability();
+        //ability  = new Ability();
+        Debug.Log(ability.Strength);
     }
     private void OnEnable()
     {
@@ -39,6 +40,17 @@ public class Sheep : MonoBehaviour
     private void LateUpdate()
     {
         // LateUpdate : 한 프레임의 마지막 단계에서 호출되는 이벤트 함수.
-        Debug.Log("LateUpdate");
+        Debug.Log("LateUpdate"); 
     }
+    private void OnDisable()
+    {
+        // OnDisable : 객체가 비활성화되었을 때 호출되는 이벤트 함수.
+        Debug.Log("OnDisable");
+    }
+    private void OnDestroy()
+    {
+        // OnDestroy : 객체가 삭제되었을 때 호출 되는 이벤트 함수. 소멸자와 같음.
+        Debug.Log("OnDestroy");
+    }
+
 }
