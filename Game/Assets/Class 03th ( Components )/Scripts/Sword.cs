@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : Item
 {
     [SerializeField] MeshRenderer meshRenderer;
 
@@ -17,5 +17,10 @@ public class Sword : MonoBehaviour
     
     void Update()
     {
+        
+    }
+    public override void Activate()
+    {
+        Debug.Log("Sword Activated");
     }
 }

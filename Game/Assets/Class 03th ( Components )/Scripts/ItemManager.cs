@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] gameObjects;
-    private int weaponIndex = 0;
+    [SerializeField] Item[] gameObjects;
+   
+    [SerializeField] private int weaponIndex = 0;
     private void Start()
     {
+        
         for (int i = 0; i < gameObjects.Length; i++)
         {
-            gameObjects[i].SetActive(false);
+            gameObjects[i].transform.gameObject.SetActive(false);
             //Debug.Log(gameObjects[i].name);
 
         }
@@ -17,19 +19,25 @@ public class ItemManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (gameObjects[weaponIndex].active == false)
-            {
-                gameObjects[weaponIndex].active = true;
-            }
-            else
-            {
-                gameObjects[weaponIndex++].SetActive(false); 
-                weaponIndex %= 5;
-                gameObjects[weaponIndex].SetActive(true);
-            }
-        }
+        if (Input.GetKeyDown(KeyCode.Space)) Swap();
+        if (Input.GetMouseButtonDown(0)) gameObjects[weaponIndex].Activate();
     }
 
+    void Swap()
+    {
+
+        if (gameObjects[weaponIndex].transform.gameObject.active == false)
+        {
+            gameObjects[weaponIndex].transform.gameObject.active = true;
+        }
+        else
+        {
+            gameObjects[weaponIndex++].transform.gameObject.SetActive(false);
+            weaponIndex %= gameObjects.Length;
+            gameObjects[weaponIndex].transform.gameObject.SetActive(true);
+        }
+        
+
+    }
+    
 }
