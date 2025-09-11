@@ -1,37 +1,26 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Seletable : MonoBehaviour
 {
-    ButtonManager buttonManager;
-    void Start()
+    [SerializeField] Text buttonText;
+    
+    private void Awake()
     {
-        buttonManager = GetComponentInParent<ButtonManager>();
+        buttonText = gameObject.GetComponentInChildren<Text>();
     }
-    private void Update()
+    
+    // Cashing : 자주 사용하는 컴포넌트를 미리 변수에 저장해두는 것
+    public void Enter()
     {
-        if (Input.mousePosition == buttonManager.transform.position)
-        {
-            Enter();
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Down();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            Exit();
-        }
+        buttonText.fontSize = 100;
     }
-    void Enter()
+    public void Exit()
     {
-        buttonManager.transform.localScale = Vector3.one * 1.2f;
+        buttonText.fontSize = 75;
     }
-    void Exit()
+    public void Down()
     {
-        buttonManager.transform.localScale = Vector3.one;
-    }
-    void Down()
-    {
-        buttonManager.transform.localScale = Vector3.one * 0.75f;
+        buttonText.fontSize = 50;
     }
 }
