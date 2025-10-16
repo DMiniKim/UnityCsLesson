@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Net.NetworkInformation;
 using Unity.VisualScripting;
@@ -12,14 +13,16 @@ public class SceneryManager : MonoBehaviour
     [SerializeField] float displayProgress;
     private void Awake()
     {
+        var objects = FindObjectsByType<SceneryManager>(FindObjectsSortMode.None);
+        if (objects.Length > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }        
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadCoroutine()
-    {
-        StartCoroutine(TransitionScene(1));
-    }
-
+    
     public IEnumerator TransitionScene(int index)
     {
         progress.value = 0;
@@ -41,7 +44,6 @@ public class SceneryManager : MonoBehaviour
         while (asyncOperation.isDone == false)
         {
             displayProgress = Mathf.Lerp(displayProgress, asyncOperation.progress, Time.deltaTime);
-            progress.value += asyncOperation.progress * Time.deltaTime;
 
             // <AsyncOperation>
             // progress
@@ -49,17 +51,27 @@ public class SceneryManager : MonoBehaviour
 
             if (asyncOperation.progress >= 0.9f)
             {
-                displayProgress = Mathf.Lerp(progress.value, 1f, Time.deltaTime);
+                displayProgress = Mathf.MoveTowards(displayProgress, 1.0f, Time.deltaTime);
 
                 if (progress.value >= 0.99f)
                 {
                     asyncOperation.allowSceneActivation = true;
-                    screen.SetActive(false);
-                    yield break;
                 }
             }
+            progress.value = displayProgress;
 
             yield return null;
+
         }
+        screen.SetActive(false);
+    }
+    
+    public void HomeButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void StartButton()
+    {
+        StartCoroutine(TransitionScene(1));
     }
 }

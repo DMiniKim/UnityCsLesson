@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 1009753824}
   - component: {fileID: 1009753823}
   - component: {fileID: 1009753822}
+  - component: {fileID: 1009753825}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -481,19 +482,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1009753823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2018079460}
-        m_TargetAssemblyTypeName: SceneryManager, Assembly-CSharp
-        m_MethodName: LoadCoroutine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1009753823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +521,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009753820}
   m_CullTransparentMesh: 1
+--- !u!114 &1009753825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009753820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfae89192d9da2c4fbc94645d84e39f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1121952937
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +955,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.797
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1175,6 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screen: {fileID: 602744617}
   progress: {fileID: 1834232563}
+  displayProgress: 0
 --- !u!4 &2018079461
 Transform:
   m_ObjectHideFlags: 0
